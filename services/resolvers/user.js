@@ -6,18 +6,10 @@ const users = [{ "First Name": "Albin", "Last Name": "VP", "email": "albinvp03@g
 
 exports.create_user = async (req, res, next) => {
     try {
-
-        // const hashedPassword = await bcrypt.hash(req.body.password, 12);
-        // USERS.create({ name: req.body.name, email: req.body.email, password: hashedPassword })
-        //     .then(response => {
-        //         res.status(201).json({
-        //             userId: response.dataValues.id,
-        //             message: "User created"
-        //         });
-        //     }).catch(function (err) {
-        //         console.log(err);
-        //     })
-
+        users.push({ "First Name": req.body.first_name, "Last Name": req.body.last_name, "email": req.body.email, "phone": req.body.phone })
+        res.status(201).json({
+            "message": "user created successfully"
+        });
 
     } catch (err) {
         console.log(err.status)
